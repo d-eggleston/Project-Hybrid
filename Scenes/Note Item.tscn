@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://sprites/note icon.png" type="Texture" id=1]
+
+[node name="Note Item" type="Node2D"]
+
+[node name="note icon" type="Sprite" parent="."]
+position = Vector2( 0.257065, -0.204391 )
+texture = ExtResource( 1 )
