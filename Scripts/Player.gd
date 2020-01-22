@@ -1,17 +1,23 @@
 extends KinematicBody2D
 
-export var speed = 200  # How fast the player will move (pixels/sec).
-var screen_size  # Size of the game window.
+var screen_size
 var animCheck
 var velocity
 var collision
 var moveSpeed = 60
+var freeze_player = false
 
 func _ready():
     screen_size = get_viewport_rect().size
     animCheck = false
 
 func _physics_process(delta):
+    
+    if (freeze_player):
+        $AnimationPlayer.stop()
+        $Sprite.rotation_degrees = 0
+        return
+    
     velocity = Vector2()  # The player's movement vector.
     
     if Input.is_action_pressed("right"):
@@ -33,8 +39,7 @@ func _physics_process(delta):
             animCheck = true
     else:
         $AnimationPlayer.stop()
-        if $Sprite.get_transform().get_rotation() != 0:
-            $Sprite.rotation_degrees = 0
+        $Sprite.rotation_degrees = 0
         animCheck = false
         
 

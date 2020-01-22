@@ -3,20 +3,19 @@ extends Node2D
 var player
 var printSpeed = 0
 var distance
+var isPlayerNear = false setget , isPlayerNear
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    pass
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-    player = get_node("/root/Main/Player")
-    distance = position.distance_to(player.position)
-    if (printSpeed == 10):
-        print(player.position)
-        print(position)
-        print(distance)
-        print("_________________")
-        printSpeed = 0
-    printSpeed += 1
+#func _process(delta):
     
+	
+func isPlayerNear():
+	player = find_parent("Main").get_player()
+	distance = position.distance_to(player.position)
+	if (distance < 15):
+		isPlayerNear = true
+	return isPlayerNear
