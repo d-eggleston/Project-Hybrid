@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scenes/Note.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Note.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Note Background.png" type="Texture" id=2]
 [ext_resource path="res://Resources/Another_.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://sprites/Note Overlay.png" type="Texture" id=4]
@@ -31,15 +31,11 @@ margin_bottom = 147.236
 custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 0.372549, 0.0745098, 0.0745098, 1 )
 meta_underlined = false
-text = "Lorem ipsum dolor sit 
-amet, consectetur 
-adipiscing elit. Integer non 
- metus sed tellus rutrum 
-scelerisque. 
-Sed purus dui, scelerisque in 
-elit et, ultrices dapibus 
-augue. Orci varius natoque 
-   penatibus et magnis dis "
+text = "
+		
+		
+			
+			Note 1"
 
 [node name="Note Overlay" type="Sprite" parent="."]
 light_mask = 2
