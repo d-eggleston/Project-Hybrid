@@ -23,6 +23,7 @@ __meta__ = {
 }
 
 [node name="Note Text" type="RichTextLabel" parent="."]
+visible = false
 light_mask = 2
 margin_left = -103.106
 margin_top = -140.764
@@ -36,6 +37,22 @@ text = "
 		
 			
 			Note 1"
+
+[node name="Note Text 2" type="RichTextLabel" parent="."]
+visible = false
+light_mask = 2
+margin_left = -103.106
+margin_top = -140.764
+margin_right = 148.894
+margin_bottom = 147.236
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0.372549, 0.0745098, 0.0745098, 1 )
+meta_underlined = false
+text = "
+		
+		
+			
+			Note 2"
 
 [node name="Note Overlay" type="Sprite" parent="."]
 light_mask = 2

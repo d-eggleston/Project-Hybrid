@@ -14,5 +14,5 @@ func get_player():
     return find_node("Player")
     
 func get_noteItem():
-    return find_node("Note Item")
+    return find_node("Notes")
 

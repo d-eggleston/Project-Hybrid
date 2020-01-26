@@ -1,7 +1,6 @@
 extends Light2D
 var flash
 var input
-var initialRot = 0
 var target = 360
 var rot = 360
 var player

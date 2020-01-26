@@ -7,10 +7,15 @@ func _ready():
     set_process_input(true)
     
 func resize():
+# warning-ignore:unused_variable
     var root = get_tree().get_root()
-    var resolution = root.get_visible_rect()
-    print(resolution)
     
-func _input(event):
-    if(event is InputEventKey and event.get_scancode() == KEY_ESCAPE):
-        OS.set_window_fullscreen(false)
+# warning-ignore:unused_argument
+func _process(delta):
+    if(Input.is_action_pressed("Alt") and Input.is_action_just_pressed("Enter")):
+        if (OS.window_fullscreen):
+            OS.set_window_fullscreen(false)
+        else:
+            OS.set_window_fullscreen(true)
+    if(Input.is_action_just_pressed("Escape")):
+        get_tree().quit()
