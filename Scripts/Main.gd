@@ -15,4 +15,18 @@ func get_player():
     
 func get_noteItem():
     return find_node("Notes")
+    
+func get_flashItem():
+    return find_node("Flashlight Item")
+    
+func unload(node):
+    var children = node.get_children()
+    
+    node.visible = false
+    
+    for each in children:
+        if (each.get_class() == "CollisionShape2D"):
+            each.disabled = true
+    return
+    
 

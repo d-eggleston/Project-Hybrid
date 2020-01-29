@@ -66,3 +66,10 @@ func _physics_process(delta):
 
 func getVelocity():
     return velocity
+    
+func getPos():
+    return (position + Vector2( 0 , 12))
+    
+    
+    
+    

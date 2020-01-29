@@ -1,9 +1,10 @@
 extends Light2D
-var flash
 var input
 var target = 360
 var rot = 360
 var player
+var main
+var hasItem
 var startRot
 var increment
 var loopcount
@@ -11,10 +12,18 @@ var speedfactor = 12
 var lightOffset = 90
 
 func _ready():
-    flash = 0
+    visible = false
+    hasItem = false
+    main = find_parent("Main")
+    pass
     
 func _physics_process(delta):
     player = get_parent()
+    
+    if (!hasItem and main.get_flashItem().position.distance_to(player.getPos()) < 5):
+        main.unload(main.get_flashItem())
+        hasItem = true
+        visible = true
     
     if(player.freeze_player):
         return
