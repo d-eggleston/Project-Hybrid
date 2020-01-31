@@ -1,23 +1,31 @@
 extends Node2D
 
-var player setget , get_player
-var noteItem setget , get_noteItem
+var player
+var noteItem
+var flashItem
+var actionKeyIcon
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-    pass # Replace with function body.
+    #actionKeyIcon = find_node("Action Prompt")
+    player = find_node("Player")
+    noteItem = find_node("Notes")
+    flashItem = find_node("Flashlight Item")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
-#	pass
+    
 func get_player():
-    return find_node("Player")
+    return player
     
 func get_noteItem():
-    return find_node("Notes")
+    return noteItem
     
 func get_flashItem():
-    return find_node("Flashlight Item")
+    return flashItem
+    
+func get_actionKeyIcon():
+    if (actionKeyIcon == null):
+        actionKeyIcon = find_node("Action Prompt")
+    return actionKeyIcon
     
 func unload(node):
     var children = node.get_children()
@@ -29,4 +37,3 @@ func unload(node):
             each.disabled = true
     return
     
-

@@ -1,14 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Note.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Note Background.png" type="Texture" id=2]
-[ext_resource path="res://Resources/Another_.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Resources/Font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://sprites/Note Overlay.png" type="Texture" id=4]
-
-[sub_resource type="DynamicFont" id=1]
-size = 25
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 3 )
 
 [node name="Note 1" type="Node2D"]
 scale = Vector2( 1.2, 1.2 )
@@ -25,34 +20,32 @@ __meta__ = {
 [node name="Note Text" type="RichTextLabel" parent="."]
 visible = false
 light_mask = 2
-margin_left = -103.106
-margin_top = -140.764
-margin_right = 148.894
-margin_bottom = 147.236
-custom_fonts/normal_font = SubResource( 1 )
+margin_left = -126.879
+margin_top = -155.138
+margin_right = 125.121
+margin_bottom = 132.862
+custom_fonts/normal_font = ExtResource( 3 )
 custom_colors/default_color = Color( 0.372549, 0.0745098, 0.0745098, 1 )
 meta_underlined = false
 text = "
-		
-		
-			
-			Note 1"
+
+
+		  Note 1"
 
 [node name="Note Text 2" type="RichTextLabel" parent="."]
 visible = false
 light_mask = 2
-margin_left = -103.106
-margin_top = -140.764
-margin_right = 148.894
-margin_bottom = 147.236
-custom_fonts/normal_font = SubResource( 1 )
+margin_left = -126.879
+margin_top = -154.585
+margin_right = 125.121
+margin_bottom = 133.415
+custom_fonts/normal_font = ExtResource( 3 )
 custom_colors/default_color = Color( 0.372549, 0.0745098, 0.0745098, 1 )
 meta_underlined = false
 text = "
-		
-		
-			
-			Note 2"
+
+
+		  Note 2"
 
 [node name="Note Overlay" type="Sprite" parent="."]
 light_mask = 2

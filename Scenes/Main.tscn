@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://sprites/wood texture.png" type="Texture" id=2]
@@ -11,8 +11,10 @@
 [ext_resource path="res://sprites/flashlight.png" type="Texture" id=9]
 [ext_resource path="res://Scripts/Light2D.gd" type="Script" id=10]
 [ext_resource path="res://sprites/player glow.png" type="Texture" id=11]
-[ext_resource path="res://Scenes/Shine.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/Note.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Action Key Icon.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Action Key Icon.gd" type="Script" id=13]
+[ext_resource path="res://Scenes/Shine.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Note.tscn" type="PackedScene" id=15]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -245,11 +247,11 @@ scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 6 )
 
 [node name="Flashlight Item" parent="Scene" instance=ExtResource( 7 )]
-position = Vector2( 928.524, 594.983 )
+position = Vector2( 894.637, 574.231 )
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
 light_mask = 2
-position = Vector2( 928.331, 472.769 )
+position = Vector2( 919.637, 491.231 )
 
 [node name="Flashlight" type="Light2D" parent="Player"]
 visible = false
@@ -274,19 +276,23 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Action Prompt" parent="Player" instance=ExtResource( 12 )]
+position = Vector2( -186, 105 )
+script = ExtResource( 13 )
+
 [node name="No Lighting" type="Node" parent="."]
 
-[node name="Shine" parent="No Lighting" instance=ExtResource( 12 )]
+[node name="Shine" parent="No Lighting" instance=ExtResource( 14 )]
 modulate = Color( 0.815686, 0.815686, 0.815686, 1 )
 position = Vector2( 268.29, 46.994 )
 scale = Vector2( 0.3, 0.3 )
 
-[node name="Shine2" parent="No Lighting" instance=ExtResource( 12 )]
+[node name="Shine2" parent="No Lighting" instance=ExtResource( 14 )]
 modulate = Color( 0.815686, 0.815686, 0.815686, 1 )
 position = Vector2( 405.708, 46.5184 )
 scale = Vector2( 0.3, 0.3 )
 
-[node name="Note" parent="." instance=ExtResource( 13 )]
+[node name="Note" parent="." instance=ExtResource( 15 )]
 position = Vector2( 885.637, 877.573 )
 scale = Vector2( 0.6, 0.6 )
 

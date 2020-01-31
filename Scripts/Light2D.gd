@@ -4,7 +4,9 @@ var target = 360
 var rot = 360
 var player
 var main
+var actionPrompt
 var hasItem
+var distancetoPlayer
 var startRot
 var increment
 var loopcount
@@ -15,19 +17,29 @@ func _ready():
     visible = false
     hasItem = false
     main = find_parent("Main")
-    pass
+    player = get_parent()
+    actionPrompt = main.get_actionKeyIcon()
     
 func _physics_process(delta):
-    player = get_parent()
+    distancetoPlayer = main.get_flashItem().position.distance_to(player.getPos())
     
-    if (!hasItem and main.get_flashItem().position.distance_to(player.getPos()) < 5):
-        main.unload(main.get_flashItem())
-        hasItem = true
-        visible = true
-    
+    #Code for collecting the flashlight item
+    if (!hasItem and distancetoPlayer < 18):
+        if (!actionPrompt.visible):
+            actionPrompt.on(self)
+        if Input.is_action_just_pressed("action"):
+            actionPrompt.off(self)
+            main.unload(main.get_flashItem())
+            hasItem = true
+            visible = true
+    elif (distancetoPlayer > 18):
+        actionPrompt.off(self)
+        
+    #Stops the flashlight from moving if the player is frozen
     if(player.freeze_player):
         return
     
+    #Check for input and assign the corresponding target value and start rotation
     input = rad2deg(player.getVelocity().normalized().angle())
     if Input.is_action_pressed("right") or input != 0:
         target = int(input) + 180
@@ -36,6 +48,7 @@ func _physics_process(delta):
     rotation_degrees = rot - 180 + lightOffset
     loopcount = 0
     
+    #Calculations for the flashlight's rotation
     if startRot:
         if target - rot < 180 and target - rot > 0:
             increment = true
