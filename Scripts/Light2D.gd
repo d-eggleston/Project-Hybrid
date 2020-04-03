@@ -14,7 +14,7 @@ var speedfactor = 12
 var lightOffset = 90
 
 func _ready():
-    visible = false
+    #visible = false
     hasItem = false
     main = find_parent("Main")
     player = get_parent()
