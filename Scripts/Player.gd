@@ -7,17 +7,19 @@ var collision
 var moveSpeed = 60
 var diagMoveSpeed = 0.7
 var freeze_player = false
+var sprite
 
 
 func _ready():
     screen_size = get_viewport_rect().size
+    sprite = get_Sprite()
     animCheck = false
 
 func _physics_process(delta):
     
     if (freeze_player):
         $AnimationPlayer.stop()
-        $Sprite.rotation_degrees = 0
+        sprite.rotation_degrees = 0
         return
     
     velocity = Vector2()  # The player's movement vector.
@@ -32,13 +34,13 @@ func _physics_process(delta):
             velocity.x += moveSpeed * diagMoveSpeed
         else:
             velocity.x += moveSpeed
-        $Sprite.flip_h = true
+        sprite.flip_h = true
     if left:
         if up or down:
             velocity.x -= moveSpeed * diagMoveSpeed
         else:
             velocity.x -= moveSpeed
-        $Sprite.flip_h = false
+        sprite.flip_h = false
     if down:
         if right or left:
             velocity.y += moveSpeed * diagMoveSpeed
@@ -58,7 +60,7 @@ func _physics_process(delta):
             animCheck = true
     else:
         $AnimationPlayer.stop()
-        $Sprite.rotation_degrees = 0
+        sprite.rotation_degrees = 0
         animCheck = false
         
 
@@ -69,6 +71,11 @@ func getVelocity():
     
 func getPos():
     return (position + Vector2( 0 , 12))
+    
+func get_Sprite():
+    for N in get_children():
+        if (N.get_class() == "Sprite"):
+            return N
     
     
     

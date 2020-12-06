@@ -34,3 +34,6 @@ rect_scale = Vector2( 0.902403, 0.902403 )
 rect_clip_content = false
 custom_fonts/normal_font = ExtResource( 1 )
 text = "Enter"
+__meta__ = {
+"_edit_use_anchors_": false
+}

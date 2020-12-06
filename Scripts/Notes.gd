@@ -18,7 +18,7 @@ func _process(delta):
         actionPrompt.on(self)
     
     elif (findNote() == -1):
-        actionPrompt.off(self)
+       actionPrompt.off(self)
 
 func findNote() -> int:
     count = 0

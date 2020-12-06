@@ -10,6 +10,7 @@ func _ready():
     player = find_node("Player")
     noteItem = find_node("Notes")
     flashItem = find_node("Flashlight Item")
+    getallnodes(self)
 
 #func _process(delta):
     
@@ -37,3 +38,11 @@ func unload(node):
             each.disabled = true
     return
     
+func getallnodes(node):
+    for N in node.get_children():
+        if N.get_child_count() > 0:
+            print("["+N.get_name()+"]")
+            getallnodes(N)
+        else:
+            # Do something
+            print("- "+N.get_name())

@@ -7,7 +7,7 @@ resource_name = "Twinkle"
 length = 3.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/path = NodePath("Shine_Sprite:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -19,7 +19,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:scale")
+tracks/1/path = NodePath("Shine_Sprite:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -31,7 +31,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:rotation_degrees")
+tracks/2/path = NodePath("Shine_Sprite:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -49,7 +49,7 @@ tracks/2/keys = {
 autoplay = "Twinkle"
 anims/Twinkle = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Shine_Sprite" type="Sprite" parent="."]
 light_mask = 2
 rotation = 1.5708
 texture = ExtResource( 1 )
